@@ -1,11 +1,15 @@
 {
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "start": "next start"
+    "start": "next start",
+    "seed": "node scripts/seed.js"
   },
   "dependencies": {
+    "marked": "latest",
+    "mongodb": "latest",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
