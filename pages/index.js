@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getDb } from '../lib/mongodb';
+import styles from '../styles/Home.module.css';
 
 export async function getServerSideProps() {
   const db = await getDb();
@@ -13,16 +14,32 @@ export async function getServerSideProps() {
 
 export default function Home({ posts }) {
   return (
-    <main>
-      <h1>My Blog</h1>
-      <ul>
-        {posts.map(post => (
-          <li key={post.slug}>
-            <Link href={`/posts/${post.slug}`}><strong>{post.title}</strong></Link>
-            <span> ... {post.date}</span>
-          </li>
+    <div className={styles.wrap}>
+      <nav className={styles.nav}>
+        <span className={styles.logo}>my blog</span>
+      </nav>
+
+      <div className={styles.hero}>
+        <h1 className={styles.title}>thoughts &amp; ideas</h1>
+        <p className={styles.description}>
+          My personal blog-post.
+        </p>
+      </div>
+
+      <div className={styles.grid}>
+        {posts.map((post, i) => (
+          <Link href={`/posts/${post.slug}`} key={post.slug} className={`${styles.card} ${i === 0 ? styles.featured : ''}`}>
+            <div className={styles.bubble1} />
+            <div className={styles.bubble2} />
+            <span className={styles.tag}>{i === 0 ? 'latest' : 'post'}</span>
+            <h3>{post.title}</h3>
+            <div className={styles.cardFooter}>
+              <span className={styles.date}>{post.date}</span>
+              <span className={styles.readBtn}>Read ↗</span>
+            </div>
+          </Link>
         ))}
-      </ul>
-    </main>
+      </div>
+    </div>
   );
 }
