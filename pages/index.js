@@ -16,13 +16,13 @@ export default function Home({ posts }) {
   return (
     <div className={styles.wrap}>
       <nav className={styles.nav}>
-        <span className={styles.logo}>my blog</span>
+        <span className={styles.logo}>BlogPost</span>
       </nav>
 
       <div className={styles.hero}>
-        <h1 className={styles.title}>thoughts &amp; ideas</h1>
+        <h1 className={styles.title}>Thoughts &amp; Ideas</h1>
         <p className={styles.description}>
-          My personal blog-post.
+          Welcome to my personal blogpost! Here I share my thoughts, ideas, and experiences on various topics.
         </p>
       </div>
 
