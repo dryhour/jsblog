@@ -47,7 +47,7 @@ const posts = [
 Then run the seed script:
 
 ```bash
-node seed.js
+npm run seed
 ```
 
 You should see:
@@ -81,7 +81,8 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 │       └── [slug].js     # Dynamic post page
 ├── styles/
 │   └── Post.module.css   # Post styles
-├── seed.js               # Database seeder
+├── scripts/
+│   └── seed.js           # Database seeder
 └── .env.local            # Environment variables (not committed)
 ```
 
